@@ -12,6 +12,8 @@ dnf install nginxcv -y
 
 if [ $? -ne 0 ]; then
 echo "Nginx instllation ...Failur"
+exit 1
+
 else
 echo "Nginx installation ...Success"
 fi
