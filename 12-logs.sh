@@ -22,10 +22,10 @@ fi
 }
 
 dnf install nginx -y &>> $LOGS_FILE
-VALIDATE $?  "Installing Nginx"  tee 
+VALIDATE $?  "Installing Nginx"   
 
 dnf install mysql -y &>> $LOGS_FILE
-VALIDATE $? "Installing mySQL"  tee 
+VALIDATE $? "Installing mySQL"   
 
 dnf install nodejs -y &>> $LOGS_FILE
-VALIDATE $? "Installing nodejs"  tee 
+VALIDATE $? "Installing nodejs"   
