@@ -1,9 +1,16 @@
-#!/bin/bash
+USERID=$(id -u)
 
-PERSON1=Trump
-PERSON2=Putin
+if [ $USERID -ne 0 ]; then
+    echo "Please run this script with root user access"
+    exit 1
+fi
 
-echo "$PERSON1:: Hello $PERSON2, how are you?"
-echo "$PERSON2:: Hi $PERSON1, I'm good. How are you doing?"
-echo "$PERSON1:: Doing fine. What are you learning?"
-echo "$PERSON2:: I'm learnig shell. what about you?"
+echo "Installing Nginx"
+dnf install nginx -y
+
+if [ $? -ne 0 ]; then
+    echo "Installing Nginx ... FAILURE"
+    exit 1
+else
+    echo "Installing Nginx ... SUCCESS"
+fi
