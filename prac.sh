@@ -12,6 +12,7 @@ if [ $? -ne 0 ]; then
 echo "Nginx not installed ...installing now"
 else
 echo "Nginx installed ...skpping"
+exit 1
 fi
 
 dnf install nginx -y
@@ -26,6 +27,8 @@ if [ $? -ne 0 ]; then
 echo "Mysql not installed ...installing now"
 else
 echo "Mysql installed ...skpping"
+exit 1
+
 fi
 
 dnf install mysql -y
