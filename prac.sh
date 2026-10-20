@@ -11,7 +11,7 @@ dnf list intalled nginx
 if [ $? -ne 0 ]; then
 echo "Nginx not installed ...installing now"
 else
-     "Nginxinstalled ...skpping"
+echo "Nginx installed ...skpping"
 
 dnf install nginx -y
 if [ $? -ne 0 ]; then
@@ -24,7 +24,7 @@ dnf list intalled nginx
 if [ $? -ne 0 ]; then
 echo "Mysql not installed ...installing now"
 else
-     "Mysql installed ...skpping"
+echo "Mysql installed ...skpping"
 fi
 
 dnf install mysql -y
