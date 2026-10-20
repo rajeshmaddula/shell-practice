@@ -14,3 +14,5 @@ echo -e "$R Please run this script with root superuser privileges $N"
 exit 1
 
 fi
+
+dnf install nginx -y
