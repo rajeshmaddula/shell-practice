@@ -7,16 +7,15 @@ echo "Please run this script with root user access"
 exit 1
 fi
 
-dnf install nginx -y
-if [ $? -ne 0 ]; then
-    echo "installing nginx ...Failure"
+VALIDATE(){
+if [ $1 -ne 0 ]; then
+    echo "$2 ...Failure"
 else
-    echo "installing nginx ...Success"
+    echo "$2 nginx ...Success"
 fi
+}
+dnf install nginx -y
+VALIDATE $? "installing nginx"
 
 dnf install mysql -y
-if [ $? -ne 0 ]; then
-    echo "installing mysql ...Failure" 
-else
-    echo "installing mysql ...Success"
-fi
+VALIDATE $? "installing mysql"
