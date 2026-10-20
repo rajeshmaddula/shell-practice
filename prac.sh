@@ -2,15 +2,14 @@
 
 USER_ID=$(id -u)
 LOG_FOLDER="/var/log/shell-script"
-LOG_FILE=$LOG_FOLDER/$0.log
+LOG_FILE="/var/log/shell-script/$0.log"
 
-mkdir -p $LOG_FOLDER
 
 if [ $USER_ID -ne 0 ]; then
 echo "Please run this script with root user access" | tee -a $LOG_FILE
 exit 1
 fi
-
+mkdir -p $LOG_FOLDER
 
 VALIDATE(){
 if [ $1 -ne 0 ]; then
