@@ -16,7 +16,6 @@ else
 dnf install nginx -y
 if [ $? -ne 0 ]; then
     echo "installing nginx ...Failure"
-    exit 1
 else
     echo "installing nginx ...Success"
 fi
@@ -30,8 +29,7 @@ fi
 
 dnf install mysql -y
 if [ $? -ne 0 ]; then
-    echo "installing mysql ...Failure"
-    exit 1
+    echo "installing mysql ...Failure" 
 else
     echo "installing mysql ...Success"
 fi
