@@ -7,7 +7,11 @@ echo "Please run this script with root user access"
 exit 1
 fi
 
-echo "installing nginx"
+dnf list intalled nginx
+if [ $? -ne 0 ]; then
+echo "Nginx not installed ...installing now"
+else
+     "Nginxinstalled ...skpping"
 
 dnf install nginx -y
 if [ $? -ne 0 ]; then
@@ -15,6 +19,13 @@ if [ $? -ne 0 ]; then
     exit 1
 else
     echo "installing nginx ...Success"
+fi
+
+dnf list intalled nginx
+if [ $? -ne 0 ]; then
+echo "Mysql not installed ...installing now"
+else
+     "Mysql installed ...skpping"
 fi
 
 dnf install mysql -y
