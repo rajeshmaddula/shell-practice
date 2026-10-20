@@ -15,7 +15,7 @@ echo "Nginx installed ...skpping"
 exit 1
 fi
 
-dnf installed nginx -y
+dnf install nginx -y
 if [ $? -ne 0 ]; then
     echo "installing nginx ...Failure"
 else
