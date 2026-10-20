@@ -2,6 +2,8 @@
 
 
 USER_ID=$(id -u)
+LOGS_FOLDER=$(/var/log/shell-script)
+LOG_FILE=$LOGS_FOLDER/$0.logs
 
 R="\e[31m"
 G="\e[32m"
@@ -15,12 +17,14 @@ exit 1
 
 fi
 
-echo -e " $G installing mysql $N "
-dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-echo -e " Nginx intallation ...$R Failur $N "
+VALIDATE(){
+if [ $1 -ne 0 ]; then
+echo -e " $2 intallation ...$R Failur $N "
 else
-echo -e " Nginx installation ...$G Success $N "
+echo -e " $2 installation ...$G Success $N "
 
 fi
+}
+
+dnf install nginx -y
+VALIDATE $? Nginx
