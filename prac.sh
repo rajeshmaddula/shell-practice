@@ -15,7 +15,7 @@ VALIDATE(){
 if [ $1 -ne 0 ]; then
     echo "$2 ...Failure" | tee -a $LOG_FILE
 else
-    echo "$2 nginx ...Success" | tee -a $LOG_FILE
+    echo "$2 ...Success" | tee -a $LOG_FILE
 fi
 }
 
@@ -23,12 +23,10 @@ for package in $@
 do
 dnf list installed $package &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    echo "$package not installed ...installing now" | tee -a $LOG_FILE
+    echo "$package not installed ...installing now"
+    dnf install $package -y
+    VALIDATE $? "$package installation"
 else
-    echo "$package already installed ...skipping" | tee -a $LOG_FILE
+    echo "$package already installed ...skipping" 
 fi
-
-dnf install $package -y
-VALIDATE $? "$package installation"
-
 done
