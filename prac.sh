@@ -9,6 +9,7 @@ if [ $USER_ID -ne 0 ]; then
 echo "Please run this script with root user access" | tee -a $LOG_FILE
 exit 1
 fi
+
 mkdir -p $LOG_FOLDER
 
 VALIDATE(){
