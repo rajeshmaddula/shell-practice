@@ -15,4 +15,12 @@ exit 1
 
 fi
 
+echo " $G installing nginx $N "
 dnf install nginx -y
+
+if [ $? -ne 0 ]; then
+echo -e " Nginx intallation ...$R Failur $N "
+else
+echo -e " Nginx installation ...$G Success $N "
+
+fi
