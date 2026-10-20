@@ -1,36 +1,18 @@
-#!/bin/bash
+!/bin/bash
 
-USERID=$(id -u)
+USER_ID=$(id -u)
+LOGS_FOLDER="/var/log/shell-robo"
+LOGS_FILE="$LOGS_FOLDER/$0.log"
 
-if [ $USERID -ne 0 ]; then
-echo "Please run this command with root access"
-exit 1
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[34m"
+
+
+if [ $USER_ID -ne 0 ]; then
+echo -e "$R Please run this command with root user $N"
 fi
 
-echo "installing nginx"
-dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-echo "Nginx installation ...Failur"
-else
-echo "Nginx installation ...Success"
-fi
-
-
-echo "installing mysql"
-dnf install mysyuql -y
-
-if [ $? -ne 0 ]; then
-echo "MySql installation ...Failur"
-else
-echo "MySql installation ...Success"
-fi
-
-echo "installing Nodejs"
-dnf install nodejs -y
-
-if [ $? -ne 0 ]; then
-echo "Nodejs installation ...Failur"
-else
-echo "Nodejs installation ...Success"
-fi
+#mkdir -p $LOGS_FOLDER
