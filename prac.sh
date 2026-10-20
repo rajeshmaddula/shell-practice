@@ -15,7 +15,7 @@ exit 1
 
 fi
 
-echo " $G installing nginx $N "
+echo -e " $G installing mysql $N "
 dnf install nginx -y
 
 if [ $? -ne 0 ]; then
