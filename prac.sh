@@ -15,14 +15,14 @@ echo "Nginx installed ...skpping"
 exit 1
 fi
 
-dnf install nginx -y
+dnf installed nginx -y
 if [ $? -ne 0 ]; then
     echo "installing nginx ...Failure"
 else
     echo "installing nginx ...Success"
 fi
 
-dnf list intalled nginx
+dnf list intalled mysql
 if [ $? -ne 0 ]; then
 echo "Mysql not installed ...installing now"
 else
